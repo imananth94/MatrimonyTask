@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule,HammerModule,HammerGestureConfig, HAMMER_GESTURE_CONFIG  } from '@angular/platform-browser';
 import { RouteReuseStrategy } from '@angular/router';
-import 'hammerjs';
+import * as Hammer from 'hammerjs';
 
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
