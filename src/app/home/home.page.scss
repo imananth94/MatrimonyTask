@@ -1,27 +1,112 @@
-#container {
-  text-align: center;
-
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+ion-header {
+    border: 0px !important;
+    border-bottom-color: transparent !important;
+    background-image: none !important;
+    border-bottom: none !important;
+    font-family: 'montserrat' !important;
+    --ion-font-family: 'montserrat' !important;
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
+ion-content {
+    font-family: 'montserrat' !important;
+    --ion-font-family: 'montserrat' !important;
 }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
-
-  color: #8c8c8c;
-
-  margin: 0;
+ion-toolbar,
+ion-content {
+    --background: #3a9dce;
 }
 
-#container a {
-  text-decoration: none;
+ion-title {
+    color: white;
+}
+
+.white_color {
+    color: white;
+}
+
+.black_color {
+    color: black;
+}
+
+.standard_font {
+    font-size: 14px;
+}
+
+.bottom_margin_10 {
+    margin-bottom: 10px;
+}
+
+.trans_background {
+    --background: transparent;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+ion-item {
+    --background: transparent;
+}
+
+.prof_img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    object-position: top;
+}
+
+.no_padding {
+    padding: 0;
+}
+
+ion-card {
+    border-radius: 20px;
+}
+
+.new_chip {
+    border: 1px solid;
+    color: white;
+    margin-top: 9px;
+}
+
+.yes_no_chip {
+    color: black;
+    background: rgb(233, 231, 231);
+}
+
+.chip_background {
+    background: #FF9800;
+    color: white;
+}
+
+@media only screen and (max-device-width: 411px) {
+    .prof_img {
+        height: 280px;
+    }
+}
+
+@media screen and (min-device-width: 411px) and (max-device-width: 480px) {
+    .prof_img {
+        height: 300px;
+    }
+}
+
+@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
+    .prof_img {
+        height: 450px;
+    }
+}
+
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
+    .prof_img {
+        height: 500px;
+    }
+}
+
+@media only screen and (min-device-width: 1025px) {
+    .prof_img {
+        height: 385px;
+        object-fit: fill;
+    }
 }

@@ -11,6 +11,14 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'view-profile',
+    loadChildren: () => import('./view-profile/view-profile.module').then( m => m.ViewProfilePageModule)
+  },
+  {
+    path: 'card-slide',
+    loadChildren: () => import('./card-slide/card-slide.module').then( m => m.CardSlidePageModule)
+  },
 ];
 
 @NgModule({

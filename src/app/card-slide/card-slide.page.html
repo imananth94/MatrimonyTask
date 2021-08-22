@@ -1,0 +1,70 @@
+<ion-content>
+    <ion-row class="white_color standard_font id_row">
+        <ion-text class="ion-padding-start ion-padding-top" (click)='homepage()'>
+            <ion-icon name="arrow-back-outline" class="arrow_size"></ion-icon>
+        </ion-text>
+        <ion-text class="ion-padding-horizontal ion-padding-top id_name bold_text"> Daily recommendations </ion-text>
+
+    </ion-row>
+    <div>
+        <ion-slides [options]="slideOpts" #mySlider (ionSlideDrag)='trackswipes($event)'>
+            <ion-slide *ngFor='let profile of profiles; let i=index;' (swipe)="swipeEvent($event,profile)">
+                <ion-card>
+
+                    <ion-card-content class='no_padding bottom_margin_10'>
+                        <img [src]='profile.img' class="prof_img">
+                        <ion-row class="ion-padding-top ion-padding-horizontal small_font">
+                            <ion-text class='color_blue'>
+                                <ion-icon name="checkmark-circle-outline" class='icon_align icon_small'> </ion-icon>
+                                Verified
+                            </ion-text>
+
+                            <ion-text class='color_violet ion-padding-start'>
+                                <ion-icon [src]='crownIcon' class='icon_align icon_small'> </ion-icon>
+                                Premium NRI
+                            </ion-text>
+                        </ion-row>
+                        <ion-item lines='none'>
+                            <ion-text class="big_font bold_text">
+                                {{profile.name}}
+                            </ion-text>
+                        </ion-item>
+                        <ion-row class="standard_font ion-padding-horizontal black_color row_color">
+                            <ion-text>
+                                {{profile.age}} , {{profile.height}} ,{{profile.language}} ,
+                            </ion-text>
+
+                            <ion-text>
+                                {{profile.caste}}, {{profile.education}} , {{profile.occupation}} ,
+                            </ion-text>
+                            <ion-text>
+                                {{profile.city}}, {{profile.state }},{{profile.country}}
+                            </ion-text>
+                        </ion-row>
+                        <ion-row class="small_font">
+                            <ion-col size='4' class="ion-margin-top" (click)='shortlistProfile(profile)'>
+                                <ion-text>
+                                    <ion-icon class="icon_small" [name]="profile.shortlisted ? 'star' : 'star-outline'" [class.color_green]='profile.shortlisted'></ion-icon>
+                                    Shortlist
+                                </ion-text>
+                            </ion-col>
+                            <ion-col size='8' class="col_margin">
+                                <ion-text class="bold_text small_font">
+                                    Like her?
+
+                                    <ion-chip class="yes_no_chip" (click)='swipeback(profile)'>
+                                        <ion-icon name="close-sharp"></ion-icon>
+                                    </ion-chip>
+                                    <ion-chip class="yes_no_chip" (click)='swipeNext(profile)' [class.chip_background]='profile.like'>
+                                        <ion-icon name="checkmark-sharp" [class.color_white]='profile.like'></ion-icon>
+                                    </ion-chip>
+
+                                </ion-text>
+                            </ion-col>
+                        </ion-row>
+                    </ion-card-content>
+                </ion-card>
+            </ion-slide>
+        </ion-slides>
+    </div>
+</ion-content>

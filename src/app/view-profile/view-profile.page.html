@@ -1,0 +1,42 @@
+<ion-content [fullscreen]="true">
+
+    <ion-row class="white_color standard_font id_row">
+        <ion-text class="ion-padding-start ion-padding-top" (click)='homepage()'>
+            <ion-icon name="arrow-back-outline" class="arrow_size"></ion-icon>
+        </ion-text>
+        <ion-text class="ion-padding-horizontal ion-padding-top id_name"> {{profileData.id}} </ion-text>
+
+    </ion-row>
+    <div class="overlaydiv1">
+        <ion-slides [options]="slideOpts" pager>
+            <ion-slide *ngFor='let picture of profileData.pictures; let i=index;' class="width_100">
+                <img [src]='picture.pic' class="prof_img">
+                <ion-chip class="slide_count">{{i + 1}} / {{profileData.pictures.length}} </ion-chip>
+            </ion-slide>
+        </ion-slides>
+        <div class="overlayDiv">
+            <br>
+
+            <ion-row>
+                <ion-col size='12'>
+                    <ion-text class="big_font ion-padding-horizontal bold_text">
+                        {{profileData.name}}
+                    </ion-text>
+                </ion-col>
+
+            </ion-row>
+            <ion-row class="standard_font ion-padding-horizontal black_color">
+                <ion-text>
+                    {{profileData.age}} , {{profileData.height}} ,{{profileData.language}} ,
+                </ion-text>
+                <ion-text>
+                    {{profileData.caste}}, {{profileData.education}} , {{profileData.occupation}} ,
+                </ion-text>
+                <ion-text>
+                    {{profileData.city}}, {{profileData.state }},{{profileData.country}}
+                </ion-text>
+            </ion-row>
+        </div>
+    </div>
+
+</ion-content>

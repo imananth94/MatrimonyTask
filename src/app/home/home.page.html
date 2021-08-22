@@ -1,20 +1,60 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header [translucent]="true" class="ion-no-border">
+    <ion-toolbar>
+        <ion-title>
+            My Matches
+        </ion-title>
+
+        <ion-buttons slot='end' (click)='screen2()'>
+            <ion-button icon-only>
+                <ion-icon name="ellipsis-vertical-outline" class="white_color"> </ion-icon>
+            </ion-button>
+        </ion-buttons>
+
+    </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-row class="white_color standard_font">
+        <ion-text class="ion-padding-horizontal ion-padding-top"> 4 Profiles pending with me </ion-text>
+        <ion-chip class="trans_background new_chip" (click)='screen2()'> 2 new</ion-chip>
+    </ion-row>
+
+    <ion-slides [options]="slideOpts">
+        <ion-slide *ngFor='let profile of profiles; let i=index;'>
+            <ion-card>
+                <ion-card-content class='no_padding bottom_margin_10'>
+                    <img [src]='profile.img' class="prof_img" (click)='view_profile(profile)'>
+                    <ion-item lines='none'>
+                        <ion-text class="standard_font bold_text">
+                            {{profile.name}}
+                        </ion-text>
+                    </ion-item>
+                    <ion-row class="standard_font ion-padding-horizontal black_color">
+                        <ion-text>
+                            {{profile.age}} , {{profile.height}} ,{{profile.language}} ,
+                        </ion-text>
+
+                        <ion-text>
+                            {{profile.caste}}, {{profile.education}} , {{profile.occupation}} ,
+                        </ion-text>
+                        <ion-text>
+                            {{profile.city}}, {{profile.state }},{{profile.country}}
+                        </ion-text>
+                    </ion-row>
+                    <ion-row class="ion-padding-horizontal">
+                        <ion-chip class="yes_no_chip" (click)='view_profile(profile)' [class.chip_background]="profile.view_profile">
+                            Yes
+                        </ion-chip>
+                        <ion-chip class="yes_no_chip" (click)='clear_profile(profile)'>
+                            No
+                        </ion-chip>
+                    </ion-row>
+
+
+                </ion-card-content>
+            </ion-card>
+        </ion-slide>
+    </ion-slides>
+
 </ion-content>
